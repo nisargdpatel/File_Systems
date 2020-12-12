@@ -1,26 +1,29 @@
+import java.util.ArrayList;
+
 public class FileSystem {
-    public static Globals global = new Globals();
+    public Globals global = new Globals();
 
     int FS_Boot()
     {
-        if (global.fs_booted || global.fs_is_available)
+        if (global.fs_booted)
         {
             global.osErrMsg = "E_FILE_BOOT";
             return -1;
         }
-            if (global.external_disk_image_exists)
-            {
+        else {
+            if (global.external_disk_image_exists) {
+                global.fs_booted = true;
                 global.fs_is_available = true;
                 return 0;
             } else {
                 global.external_disk_image_exists = true;
-                //TODO: Copy external_disk into working_disk
-                for (int i = 0; i < global.external_disk.file_table.size() && global.external_disk.file_table.size() > 0; i++)
-                {
+                //Copy external_disk into working_disk
+                global.working_disk.file_table = new ArrayList<>();
+                for (int i = 0; i < global.external_disk.file_table.size() && global.external_disk.file_table.size() > 0; i++) {
                     global.working_disk.file_table.add(i, global.external_disk.file_table.get(i));
                 }
-                if(global.working_disk_exists)
-                {
+                if (global.working_disk_exists) {
+                    global.fs_booted = true;
                     global.fs_is_available = true;
                     return 0;
                 } else {
@@ -28,6 +31,7 @@ public class FileSystem {
                     return -1;
                 }
             }
+        }
     }
 
 
@@ -35,7 +39,12 @@ public class FileSystem {
     {
         if (global.fs_is_available)
         {
-            //TODO: Copy working_disk contents into external_disk
+            //Copy working_disk contents into external_disk
+            global.external_disk.file_table = new ArrayList<>();
+            for (int i = 0; i < global.working_disk.file_table.size() && global.working_disk.file_table.size() > 0; i++)
+            {
+                global.external_disk.file_table.add(i, global.working_disk.file_table.get(i));
+            }
             return 0;
         } else {
             return -1;

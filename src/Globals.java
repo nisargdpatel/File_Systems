@@ -8,8 +8,8 @@ public class Globals {
     static String diskErrMsg = "";
     public static Boolean fs_booted = false;
     public static Boolean fs_is_available = false;
-    public static Boolean external_disk_exists = false;
-    public static Boolean working_disk_exists = false;
+    public static Boolean external_disk_exists = true;
+    public static Boolean working_disk_exists = true;
     public static Boolean external_disk_image_exists = false;
     public static Boolean working_disk_image_exists = false;
 
