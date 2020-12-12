@@ -53,10 +53,11 @@ public class FileSystem {
 
 
     int FS_Reset() {
-        global.fs_is_available = false;
         int result = FS_Sync();
         if (result == 0)
         {
+            global.fs_is_available = false;
+            global.fs_booted = false;
             return 0;
         } else {
             global.osErrMsg = "E_FILE_RESET";

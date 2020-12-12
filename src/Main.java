@@ -19,11 +19,14 @@ public class Main {
         temp_file2.size = 5;
         global.working_disk.file_table.add(temp_file);
         global.external_disk.file_table.add(temp_file2);
-        System.out.println("Before in working disk: " + global.working_disk.file_table.get(0).size);
-        System.out.println("Before in external disk: " + global.external_disk.file_table.get(0).size);
-        fileSystem.FS_Sync();
-        System.out.println("After in working disk: " + global.working_disk.file_table.get(0).size);
-        System.out.println("After in external disk: " + global.external_disk.file_table.get(0).size);
+//        System.out.println("Before in working disk: " + global.working_disk.file_table.get(0).size);
+//        System.out.println("Before in external disk: " + global.external_disk.file_table.get(0).size);
+        System.out.println(fileSystem.FS_Sync());
+//        System.out.println("After in working disk: " + global.working_disk.file_table.get(0).size);
+//        System.out.println("After in external disk: " + global.external_disk.file_table.get(0).size);
+        System.out.println(fileSystem.FS_Reset());
+        System.out.println(fileSystem.FS_Boot());
+
 
     }
 }
