@@ -1,4 +1,8 @@
 public class Files {
+
+    public Files() {
+
+    }
     public static int size = 0;
     public static int max_file_size = 0;
     public static Boolean is_open = false;

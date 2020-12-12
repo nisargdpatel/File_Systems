@@ -10,7 +10,8 @@ public class Globals {
     public static Boolean fs_is_available = false;
     public static Boolean external_disk_exists = false;
     public static Boolean working_disk_exists = false;
-    public static ArrayList<Files> file_table = new ArrayList<>();
+    public static Boolean external_disk_image_exists = false;
+    public static Boolean working_disk_image_exists = false;
 
     public Globals()
     {
