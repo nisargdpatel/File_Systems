@@ -13,6 +13,11 @@ public class Globals {
     public static Boolean external_disk_image_exists = false;
     public static Boolean working_disk_image_exists = false;
 
+    static final int NUM_SECTORS = 1000;
+    static final int SECTOR_SIZE = 512;
+
+    public static String tempBuffer = "";
+
     public Globals()
     {
 

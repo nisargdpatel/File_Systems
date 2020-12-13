@@ -1,6 +1,5 @@
-public class Directory {
-    static Disk external_disk = new Disk();
-    static Disk working_disk = new Disk();
+public class Directory extends FileAccess {
+    int x = 0;
 
 //    int dir_create(String path)
 //    {

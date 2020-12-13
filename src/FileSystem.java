@@ -3,6 +3,16 @@ import java.util.ArrayList;
 public class FileSystem {
     public Globals global = new Globals();
 
+    public int size = 0;
+    public static int max_file_size = 0;
+    public static Boolean is_open = false;
+    public static int current_read_pointer = 0;
+    public static int current_write_pointer = 0;
+    public static int fd = 0;
+    public static String value = "";
+    public static int location = 0;
+    public static String type = "";
+
     int FS_Boot()
     {
         if (global.fs_booted)
